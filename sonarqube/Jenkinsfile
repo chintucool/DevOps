@@ -7,7 +7,6 @@ pipeline{
        stage('GetCode'){
             steps{
                     git branch: 'master', url: 'https://github.com/chintucool/javaloginapp.git'
-                    echo branch
                     echo BRANCH_NAME 
             }
         }
