@@ -6,7 +6,7 @@ pipeline{
     stages{
        stage('GetCode'){
             steps{
-                    git branch: 'master', url: 'https://github.com/chintucool/SonarQubeMaven.git'
+                    git branch: 'master', url: 'https://github.com/chintucool/jacoco-codecoverage.git'
                     echo "branch name - " + env.branch
             }
         }
