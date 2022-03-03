@@ -6,7 +6,9 @@ pipeline{
     stages{
        stage('GetCode'){
             steps{
-                git branch: 'master', url: 'https://github.com/chintucool/javaloginapp.git'
+                    git branch: 'master', url: 'https://github.com/chintucool/javaloginapp.git'
+                    echo branch
+                    echo BRANCH_NAME 
             }
         }
        stage('SonarQube analysis') {
