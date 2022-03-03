@@ -15,6 +15,7 @@ pipeline{
                     branch 'master'
             }
             steps{
+                    sh 'java -version'
                     sh 'mvn clean package sonar:sonar'
              }
         }
