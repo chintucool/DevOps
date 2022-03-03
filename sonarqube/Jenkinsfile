@@ -10,11 +10,9 @@ pipeline{
             }
         }
        stage('SonarQube analysis') {
-            steps {
-                withSonarQubeEnv('sonar') {
+            steps{
                     sh 'mvn clean package sonar:sonar'
-                }
-            }
+             }
         }
         stage('Jacoco coverage') {
             steps {
