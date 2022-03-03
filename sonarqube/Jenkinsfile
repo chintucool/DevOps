@@ -8,22 +8,30 @@ pipeline{
             steps{
                 git 'https://github.com/chintucool/javaloginapp.git'
             }
-         }        
-       stage('Build'){
-            steps{
-                sh 'mvn clean package'
+        }
+       stage('SonarQube analysis') {
+            when {
+                branch 'master' 
             }
-         }
-        stage('SonarQube analysis') {
-//    def scannerHome = tool 'SonarScanner 4.0';
-        steps{
-        withSonarQubeEnv('sonar') { 
-        // If you have configured more than one global server connection, you can specify its name
-//      sh "${scannerHome}/bin/sonar-scanner"
-        sh "mvn sonar:sonar"
-    }
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh 'mvn clean package sonar:sonar'
+                }
+            }
         }
-        }
+        stage('Jacoco coverage') {
+            when {
+                branch 'master' 
+            }
+            steps {
+                jacoco(
+                        execPattern: '**/jacoco.exec',
+                        classPattern: '**/classes',
+                        sourcePattern: '**/src/main/java',
+                        inclusionPattern: '**/*.java'
+                )
+            }
+        }         
        
     }
 }
