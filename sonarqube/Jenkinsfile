@@ -10,9 +10,6 @@ pipeline{
             }
         }
        stage('SonarQube analysis') {
-            when {
-                branch 'master' 
-            }
             steps {
                 withSonarQubeEnv('sonar') {
                     sh 'mvn clean package sonar:sonar'
@@ -20,9 +17,6 @@ pipeline{
             }
         }
         stage('Jacoco coverage') {
-            when {
-                branch 'master' 
-            }
             steps {
                 jacoco(
                         execPattern: '**/jacoco.exec',
