@@ -11,6 +11,9 @@ pipeline{
             }
         }
        stage('SonarQube analysis') {
+            when {
+                    branch 'master'
+            }
             steps{
                     sh 'mvn clean package sonar:sonar'
              }
