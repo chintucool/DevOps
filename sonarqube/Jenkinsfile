@@ -22,10 +22,10 @@ pipeline{
                 always {
                     publishHTML(
                         [
-                        allowMissing: true,
+                        allowMissing: false,
                         alwaysLinkToLastBuild: false,
                         keepAll: true,
-                        reportDir: 'target',
+                        reportDir: 'coverage',
                         reportFiles: 'index.html',
                         reportName: 'Coverage report',
                         reportTitles: 'Coverage report'
