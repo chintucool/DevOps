@@ -25,7 +25,7 @@ pipeline{
                         allowMissing: true,
                         alwaysLinkToLastBuild: false,
                         keepAll: true,
-                        reportDir: 'coverage/lcov-report',
+                        reportDir: 'target',
                         reportFiles: 'index.html',
                         reportName: 'Coverage report',
                         reportTitles: 'Coverage report'
@@ -33,12 +33,12 @@ pipeline{
                     )
                     junit(
                         allowEmptyResults: true,
-                        testResults: 'coverage/junit/*.xml'
+                        testResults: 'target/junit/*.xml'
                     )
                     cobertura(
                         autoUpdateHealth: false,
                         autoUpdateStability: false,
-                        coberturaReportFile: 'coverage/cobertura-coverage.xml',
+                        coberturaReportFile: 'target/cobertura-coverage.xml',
                         enableNewApi: true,
                         failNoReports: false,
                         failUnhealthy: false,
