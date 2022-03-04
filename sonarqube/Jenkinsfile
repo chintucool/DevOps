@@ -16,7 +16,7 @@ pipeline{
             }
             steps{
                     sh 'java -version'
-                    sh 'mvn clean verify package sonar:sonar'
+                    sh 'mvn clean package sonar:sonar'
              }
         }
         stage('Jacoco coverage') {
