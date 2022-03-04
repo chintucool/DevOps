@@ -39,7 +39,7 @@ pipeline{
                     cobertura(
                         autoUpdateHealth: false,
                         autoUpdateStability: false,
-                        coberturaReportFile: 'coverage/cobertura-coverage.xml',
+                        coberturaReportFile: 'target/site/cobertura/coverage.xml',
                         enableNewApi: true,
                         failNoReports: false,
                         failUnhealthy: false,
