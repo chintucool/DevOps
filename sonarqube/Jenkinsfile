@@ -19,7 +19,7 @@ pipeline{
                         java -version
                         mvn clean package sonar:sonar 
                         export JAVA_HOME=/usr/local/Cellar/openjdk@8/1.8.0+312
-                        mvn cobertura:cobertura
+                        mvn cobertura:cobertura -Dcobertura.report.format=xml
                         unset JAVA_HOME
                     """
              }
