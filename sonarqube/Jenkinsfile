@@ -31,23 +31,6 @@ pipeline{
                         reportTitles: 'Coverage report'
                         ]
                     )
-                    junit(
-                        allowEmptyResults: true,
-                        testResults: 'target/junit/*.xml'
-                    )
-                    cobertura(
-                        autoUpdateHealth: false,
-                        autoUpdateStability: false,
-                        coberturaReportFile: 'target/cobertura-coverage.xml',
-                        enableNewApi: true,
-                        failNoReports: false,
-                        failUnhealthy: false,
-                        failUnstable: false,
-                        maxNumberOfBuilds: 10,
-                        onlyStable: false,
-                        sourceEncoding: 'ASCII',
-                        zoomCoverageChart: false
-                    )
                 }
            }
         }       
