@@ -21,18 +21,6 @@ pipeline{
                     """
              }
         }
-         stage('Jacoco coverage') {
-            when {
-                branch 'master' 
-            }
-            steps {
-                jacoco(
-                        execPattern: '**/jacoco.exec',
-                        classPattern: '**/classes',
-                        sourcePattern: '**/src/main/java',
-                        inclusionPattern: '**/*.java'
-                )
-            }
-        }
+         
     }
 }
